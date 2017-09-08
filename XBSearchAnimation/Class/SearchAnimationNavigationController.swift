@@ -104,11 +104,7 @@ public final class SearchModalTransition: NSObject, UIViewControllerAnimatedTran
             transitionContext.containerView.insertSubview(backgroundView!, belowSubview: toViewController.view)
             toViewController.view.frame = modalViewInitialFrame
             transitionContext.containerView.addSubview(toViewController.view)
-            let navBarFrame = (toViewController as! SearchAnimationNavigationController).navigationBar.frame
-            (toViewController as! SearchAnimationNavigationController).navigationBar.frame = CGRect(x: navBarFrame.origin.x, y: 0, width: navBarFrame.size.width, height: navBarFrame.size.height)
-            
-            
-            
+
             UIView.animate(withDuration: self.transitionDuration(using: transitionContext), delay: 0, usingSpringWithDamping: 0.88, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
                 backgroundView?.alpha = self.backgroundShadeAlpha
                 toViewController.view.frame = modalViewFinalFrame
